@@ -1,5 +1,23 @@
 @import 'bootstrap/scss/bootstrap';
 
+@font-face {
+	font-family: 'Dancing Script';
+	src: url('/assets/fonts/DancingScript-Medium.ttf');
+}
+
+* {
+	box-sizing: border-box;
+}
+
 body {
 	background-color: #feecf6;
+}
+
+a {
+	color: var(--bs-body-color); // Change it when use a global color
+	text-decoration: none;
+}
+
+.App {
+	display: flex;
 }

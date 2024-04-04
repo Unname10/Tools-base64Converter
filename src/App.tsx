@@ -1,13 +1,13 @@
-import { Container } from 'react-bootstrap';
-
 import LeftPanel from './components/LeftPanel';
+import RightPanel from './components/RightPanel';
 import './App.scss';
 
 function App() {
 	return (
-		<Container fluid>
+		<div className='App'>
 			<LeftPanel />
-		</Container>
+			<RightPanel />
+		</div>
 	);
 }
 

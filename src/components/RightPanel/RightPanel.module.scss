@@ -1,0 +1,44 @@
+.Right--Wrapper {
+	background-color: #fff;
+
+	@media (min-width: 1120px) {
+		flex-grow: 1;
+		border-top-left-radius: 50px;
+		border-bottom-left-radius: 50px;
+	}
+
+	padding: 50px;
+
+	.Header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		.Header--Mode_Switcher {
+			display: flex;
+			align-items: center;
+			border: 1px dashed #ccc;
+			border-radius: 50px;
+			width: fit-content;
+			overflow: hidden;
+			user-select: none;
+
+			.Header--Mode_Switcher__items {
+				padding: 15px 30px;
+				font-weight: bold;
+
+				&.active {
+					background-color: #ff579a;
+				}
+
+				&:not(&.active) {
+					cursor: pointer;
+				}
+
+				&:not(:last-child) {
+					border-right: 1px dashed #ccc;
+				}
+			}
+		}
+	}
+}

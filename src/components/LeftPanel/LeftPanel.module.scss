@@ -1,0 +1,66 @@
+.Left--Wrapper {
+	width: 40%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	.Navbar {
+		margin: 20px;
+		display: flex;
+		justify-content: space-between;
+
+		.Navbar--Logo {
+			font-family: 'Dancing Script', 'Inter';
+			font-size: 24px;
+			user-select: none;
+		}
+
+		.Navbar--Menu {
+			display: flex;
+			align-items: center;
+
+			.Navbar--Menu__Items {
+				padding: 0 20px;
+				font-weight: bold;
+			}
+		}
+	}
+
+	.Preview {
+		z-index: -1;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-top: -20%;
+
+		padding: 0 10%;
+
+		.Preview--Main_Text {
+			font-size: 75px;
+			font-weight: bold;
+			line-height: 95%;
+			margin: 30px 0;
+		}
+
+		.Preview--Sub_Text {
+			font-size: 25px;
+			font-weight: 500;
+		}
+	}
+
+	.Footer {
+		z-index: -1;
+		.Footer--decoration {
+			position: fixed;
+			bottom: -200px;
+			width: 400px;
+		}
+	}
+
+	@media (max-width: 1120px) {
+		& {
+			display: none;
+		}
+	}
+}
