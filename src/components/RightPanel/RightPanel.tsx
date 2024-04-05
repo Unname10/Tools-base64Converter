@@ -6,6 +6,12 @@ import xmark from '../../../assets/icons/xmark.svg';
 import imagefile from '../../../assets/icons/imagefile.svg';
 import textfile from '../../../assets/icons/textfile.svg';
 import otherfile from '../../../assets/icons/file.svg';
+import plus from '../../../assets/icons/plus.svg';
+import convert from '../../../assets/icons/logo.svg';
+import dot from '../../../assets/icons/dot.svg';
+import x from '../../../assets/icons/x.svg';
+
+import ColorDot from '../../../assets/icons/ColorDot';
 
 const cx = classNames.bind(styles);
 
@@ -16,56 +22,95 @@ const getFileType = (file: File) => {
 };
 
 function RightPanel() {
-	const [mode, setMode] = useState<number>(0);
 	const [fileLists, setFileLists] = useState<Array<File>>([]);
-
-	const ModeList = [
-		{ title: 'Image to Base64' },
-		{ title: 'Text to Base64' },
-		{ title: 'Other' },
-	];
 
 	return (
 		<div className={cx('Right--Wrapper')}>
 			<div className={cx('Header')}>
-				<div className={cx('Header--Mode_Switcher')}>
-					{ModeList.map((modeItem, idx) => (
-						<div
-							className={cx('Header--Mode_Switcher__items', {
-								active: idx === mode,
-							})}
-							onClick={() => {
-								setMode(idx);
-							}}
-							key={idx}
-						>
-							{modeItem.title}
+				<div className={cx('Stack--Wrapper')}>
+					<p className={cx('Stack__Title')}>File List</p>
+					<div className={cx('Stack--Content')}>
+						<div className={cx('Stack--Header')}>
+							<div className={cx('Stack--Header__there_dots')}>
+								<ColorDot color='#ff5255' />
+								<ColorDot color='#febf43' />
+								<ColorDot color='#19ce4b' />
+							</div>
+							{`${fileLists.length} File(s)`}
+							<img src={dot} />
+							{`${fileLists.reduce(
+								(total, currentFile) =>
+									currentFile.size + total,
+								0
+							)} KB total`}
 						</div>
-					))}
-				</div>
-				<div className={cx('Header--Stack')}>
-					{fileLists.map((file, idx) => (
-						<div className={cx('Header--Stack_items')} key={idx}>
-							<img
-								className={cx('Stack--Items__icons')}
-								src={getFileType(file)}
-							/>
-							<p className={cx('Stack--Items__name')}>
-								{file.name}
-							</p>
-							<p className={cx('Stack--Items__size')}>
-								{file.size}
-							</p>
-							<img
-								className={cx('Stack--Items__remove')}
-								src={xmark}
-							/>
-						</div>
-					))}
+						{/* {fileLists.map((file, idx) => (
+							<div className={cx('Stack--items')} key={idx}>
+								<img
+									className={cx('Stack--Items__icons')}
+									src={getFileType(file)}
+								/>
+								<p className={cx('Stack--Items__name')}>
+									{file.name}
+								</p>
+								<p className={cx('Stack--Items__size')}>
+									{file.size}
+								</p>
+								<img
+									className={cx('Stack--Items__remove')}
+									src={xmark}
+								/>
+							</div>
+						))} */}
+						{fileLists.length === 0 && (
+							<div className={cx('Stack--NullContent')}>
+								Hummm... there's nothing here. Click Add More!
+								or Paste a picture to convert it!
+							</div>
+						)}
+					</div>
 
-					<div className={cx('Header--Stack__addBtn')}>Add More!</div>
-					<div className={cx('Header--Stack__convertBtn')}>
-						Convert
+					<div className={cx('Stack--Function')}>
+						<label
+							htmlFor='uploadFile'
+							className={cx('Stack--Function__items')}
+						>
+							<img
+								className={cx('Function--Items__icons')}
+								src={plus}
+							/>
+							Add More!
+						</label>
+						<input
+							id='uploadFile'
+							type='file'
+							style={{ display: 'none' }}
+							onChange={(e) => {
+								setFileLists([...(e.target.files ?? [])]);
+							}}
+							multiple
+						/>
+						{
+							<button
+								className={cx('Stack--Function__items')}
+								onClick={() => {
+									setFileLists([]);
+								}}
+							>
+								<img
+									className={cx('Function--Items__icons')}
+									src={x}
+								/>
+								Clear
+							</button>
+						}
+						<button className={cx('Stack--Function__items')}>
+							<img
+								className={cx('Function--Items__icons')}
+								src={convert}
+							/>
+							Convert
+						</button>
 					</div>
 				</div>
 			</div>
