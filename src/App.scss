@@ -1,8 +1,10 @@
-@import 'bootstrap/scss/bootstrap';
-
 @font-face {
 	font-family: 'Dancing Script';
 	src: url('/assets/fonts/DancingScript-Medium.ttf');
+}
+
+:root {
+	--primary-color: #212529;
 }
 
 * {
@@ -11,10 +13,13 @@
 
 body {
 	background-color: #feecf6;
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+		'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji',
+		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 a {
-	color: var(--bs-body-color); // Change it when use a global color
+	color: var(--primary-color); // Change it when use a global color
 	text-decoration: none;
 }
 

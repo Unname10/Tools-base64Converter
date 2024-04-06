@@ -1,0 +1,22 @@
+.Button {
+	display: flex;
+	align-items: center;
+	padding: 10px 15px;
+	background-color: #ff50ac;
+	color: #fff;
+	width: fit-content;
+
+	border-radius: 50px;
+	margin-top: 10px;
+	border: 0;
+	cursor: pointer;
+
+	&:not(:last-child) {
+		margin-right: 10px;
+	}
+
+	.Button__icon {
+		width: 20px;
+		margin-right: 10px;
+	}
+}

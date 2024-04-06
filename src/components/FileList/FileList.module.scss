@@ -1,0 +1,42 @@
+.FileList--Wrapper {
+	width: 100%;
+	border: 1px dashed #ccc;
+	border-radius: 20px;
+	height: 30vh;
+	display: flex;
+	flex-direction: column;
+
+	.FileList--Header {
+		width: 100%;
+		padding: 10px 15px;
+		font-size: 18px;
+		border-bottom: 1px dashed #ccc;
+		display: flex;
+
+		.FileList--Header__there_dots {
+			width: 60px;
+			display: flex;
+			margin-right: 10px;
+
+			svg:not(:last-child) {
+				margin-right: 5px;
+			}
+		}
+		img {
+			width: 7px;
+			margin: 0 5px;
+		}
+	}
+
+	.FileList--NullContent {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+
+		font-weight: 500;
+		font-size: 16px;
+		opacity: 0.7;
+		user-select: none;
+	}
+}
