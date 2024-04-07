@@ -26,8 +26,7 @@
 		}
 	}
 
-	.Preview {
-		z-index: -1;
+	.Banner {
 		flex-grow: 1;
 		display: flex;
 		flex-direction: column;
@@ -36,14 +35,14 @@
 
 		padding: 0 10%;
 
-		.Preview--Main_Text {
+		.Banner--Main_Text {
 			font-size: 75px;
 			font-weight: bold;
 			line-height: 95%;
 			margin: 30px 0;
 		}
 
-		.Preview--Sub_Text {
+		.Banner--Sub_Text {
 			font-size: 25px;
 			font-weight: 500;
 		}

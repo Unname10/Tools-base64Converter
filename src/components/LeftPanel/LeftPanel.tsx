@@ -19,11 +19,11 @@ function LeftPanel() {
 					</a>
 				</div>
 			</div>
-			<div className={cx('Preview')}>
-				<div className={cx('Preview--Main_Text')}>
+			<div className={cx('Banner')}>
+				<div className={cx('Banner--Main_Text')}>
 					Base64 <br /> Converter
 				</div>
-				<div className={cx('Preview--Sub_Text')}>
+				<div className={cx('Banner--Sub_Text')}>
 					Simple tools to convert image to base64 format!
 				</div>
 			</div>
