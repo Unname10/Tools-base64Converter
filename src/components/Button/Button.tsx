@@ -6,13 +6,13 @@ import { MouseEventHandler } from 'react';
 const cx = classNames.bind(styles);
 
 function Button({
-	text,
+	text = '',
 	iconSrc = '',
 	btnClassName = '',
 	onClick = () => {},
 	htmlFor = '',
 }: {
-	text: string;
+	text?: string;
 	iconSrc?: string;
 	btnClassName?: string;
 	onClick?: MouseEventHandler;

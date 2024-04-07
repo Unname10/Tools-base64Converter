@@ -9,52 +9,27 @@
 
 	padding: 50px;
 
+	.Stack__Title,
+	.Result--Title {
+		font-weight: 700;
+		font-size: 25px;
+		margin-top: 0;
+		margin-bottom: 1rem;
+	}
+
 	.Stack--Wrapper {
 		display: flex;
 		flex-direction: column;
 
-		.Stack__Title {
-			font-weight: 700;
-			font-size: 25px;
-			margin-top: 0;
-			margin-bottom: 1rem;
-		}
-
 		.Stack--Function {
 			align-self: flex-end;
 			display: flex;
-
-			.Stack--Function__items {
-				display: flex;
-				align-items: center;
-				padding: 10px 15px;
-				background-color: #ff50ac;
-				color: #fff;
-				border-radius: 50px;
-				margin-top: 10px;
-				border: 0;
-				cursor: pointer;
-
-				&:not(:last-child) {
-					margin-right: 10px;
-				}
-
-				.Function--Items__icons {
-					width: 20px;
-					margin-right: 10px;
-				}
-			}
 		}
 	}
 
 	.Result {
 		display: flex;
 		flex-direction: column;
-
-		.Result--Title {
-			font-weight: 700;
-			font-size: 25px;
-		}
 
 		.Result--Content {
 			width: 100%;

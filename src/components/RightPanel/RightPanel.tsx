@@ -1,12 +1,9 @@
 import classNames from 'classnames/bind';
 import styles from './RightPanel.module.scss';
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import FileList from '../FileList';
 import Button from '../Button';
-// import imagefile from '../../../assets/icons/imagefile.svg';
-// import textfile from '../../../assets/icons/textfile.svg';
-// import otherfile from '../../../assets/icons/file.svg';
 import plus from '../../../assets/icons/plus.svg';
 import convert from '../../../assets/icons/logo.svg';
 import x from '../../../assets/icons/x.svg';
@@ -15,22 +12,29 @@ import download from '../../../assets/icons/download.svg';
 
 const cx = classNames.bind(styles);
 
-// const getFileType = (file: File) => {
-// 	if (file.type.match('image.*')) return imagefile;
-// 	else if (file.type.match('text.*')) return textfile;
-// 	else return otherfile;
-// };
-
 function RightPanel() {
 	const [fileList, setFileList] = useState<Array<File>>([]);
 
-	useEffect(() => {}, [fileList]);
+	const handleRemoveItem = useCallback(
+		(idx: number) => {
+			let removedArray = [...fileList];
+			removedArray.splice(idx, 1);
+
+			setFileList(removedArray);
+		},
+		[fileList]
+	);
 
 	return (
 		<div className={cx('Right--Wrapper')}>
 			<div className={cx('Stack--Wrapper')}>
 				<p className={cx('Stack__Title')}>File list</p>
-				<FileList fileList={fileList} />
+				<FileList
+					fileList={fileList}
+					nullText="Hummm... there's nothing here. Click Add More! or Paste a
+					picture to convert it!"
+					handleRemoveItem={handleRemoveItem}
+				/>
 
 				<div className={cx('Stack--Function')}>
 					<input
@@ -65,7 +69,7 @@ function RightPanel() {
 
 			<div className={cx('Result')}>
 				<p className={cx('Result--Title')}>Result</p>
-				<FileList fileList={[]} />
+				<FileList fileList={[]} nullText='Empty' />
 				<div className={cx('Result--Utils')}>
 					<Button text='Copy' iconSrc={copy} />
 					<Button text='Download' iconSrc={download} />
