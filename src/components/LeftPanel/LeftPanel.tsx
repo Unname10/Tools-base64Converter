@@ -1,7 +1,9 @@
 import classNames from 'classnames/bind';
 import styles from './LeftPanel.module.scss';
 
-import ImageIcon from '../../../assets/icons/ImageIcon';
+import image_file from '../../../assets/icons/image_file.svg';
+import text_file from '../../../assets/icons/text_file.svg';
+import file from '../../../assets/icons/file.svg';
 
 const cx = classNames.bind(styles);
 
@@ -28,29 +30,31 @@ function LeftPanel() {
 				</div>
 			</div>
 			<div className={cx('Footer')}>
-				<ImageIcon
-					fill='#f57aab'
+				<img
+					src={image_file}
 					className={cx('Footer--decoration')}
 					style={{
 						transform: 'rotate(35deg)',
 						opacity: '0.7',
 					}}
 				/>
-				<ImageIcon
-					fill='#f7d145'
+
+				<img
+					src={text_file}
 					className={cx('Footer--decoration')}
 					style={{
-						translate: '200px 50px',
+						translate: '200px 20px',
 						transform: 'rotate(10deg)',
 						opacity: '0.9',
 						zIndex: '-3',
 					}}
 				/>
-				<ImageIcon
-					fill='#a35db1'
+
+				<img
+					src={file}
 					className={cx('Footer--decoration')}
 					style={{
-						translate: '350px -30px',
+						translate: '350px 100px',
 						transform: 'rotate(340deg)',
 						opacity: '0.8',
 						zIndex: -1,

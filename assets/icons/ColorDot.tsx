@@ -1,5 +1,3 @@
-import React from 'react';
-
 function ColorDot({
 	color = '#000',
 	className = '',
