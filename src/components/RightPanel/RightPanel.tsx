@@ -9,11 +9,15 @@ import convert from '../../../assets/icons/logo.svg';
 import x from '../../../assets/icons/x.svg';
 import copy from '../../../assets/icons/copy.svg';
 import download from '../../../assets/icons/download.svg';
+import { textObject } from '../FileList/TextItem';
+
+import convertFileToBase64 from '../../../utils/convertFileToBase64';
 
 const cx = classNames.bind(styles);
 
 function RightPanel() {
 	const [fileList, setFileList] = useState<Array<File>>([]);
+	const [textFileList, setTextFileList] = useState<Array<textObject>>([]);
 
 	const handleRemoveItem = useCallback(
 		(idx: number) => {
@@ -43,7 +47,9 @@ function RightPanel() {
 						style={{ display: 'none' }}
 						onChange={(e) => {
 							setFileList([...(e.target.files ?? [])]);
-						}}
+						}} // TODO: Thay đổi sự kiện onChange hoặc reset input khi nhấn nút Clear
+						// Nếu không khi chọn 1 file bất kì, nhấn Clear, rồi chọn lại File đó
+						// Sẽ khiến fileList không được cập nhật
 						multiple
 					/>
 
@@ -61,7 +67,30 @@ function RightPanel() {
 							}}
 						/>
 					)}
-					<Button text='Convert' iconSrc={convert} />
+					<Button
+						text='Convert'
+						iconSrc={convert}
+						onClick={async () => {
+							let result = [];
+							for (let i = 0; i < fileList.length; i++) {
+								const file = fileList[i];
+								const nameWithoutExtension = file.name
+									.split('.')
+									.slice(0, -1)
+									.join('.');
+								result.push({
+									content: await convertFileToBase64(file),
+									size: file.size,
+									name: `${
+										nameWithoutExtension !== ''
+											? nameWithoutExtension
+											: file.name
+									}.txt`,
+								});
+							}
+							setTextFileList(result);
+						}}
+					/>
 				</div>
 			</div>
 
@@ -69,7 +98,7 @@ function RightPanel() {
 
 			<div className={cx('Result')}>
 				<p className={cx('Result--Title')}>Result</p>
-				<FileList fileList={[]} nullText='Empty' />
+				<FileList textList={textFileList} nullText='Empty' />
 				<div className={cx('Result--Utils')}>
 					<Button text='Copy' iconSrc={copy} />
 					<Button text='Download' iconSrc={download} />

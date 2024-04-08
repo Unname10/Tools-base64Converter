@@ -26,7 +26,7 @@ function LeftPanel() {
 					Base64 <br /> Converter
 				</div>
 				<div className={cx('Banner--Sub_Text')}>
-					Simple tools to convert image to base64 format!
+					Simple tools to convert file to base64 format!
 				</div>
 			</div>
 			<div className={cx('Footer')}>
