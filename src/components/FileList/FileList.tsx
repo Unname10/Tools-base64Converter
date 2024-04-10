@@ -39,7 +39,7 @@ function FileList({
 					<ColorDot color='#19ce4b' />
 				</div>
 				{`${Math.abs(fileList.length - textList.length)} File(s)`}
-				{textList.length == 0 && (
+				{textList.length == 0 && fileList.length != 0 && (
 					<>
 						<img src={dot} />
 						{`${humanFileSize(

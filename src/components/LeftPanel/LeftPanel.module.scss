@@ -1,4 +1,5 @@
 .Left--Wrapper {
+	user-select: none;
 	width: 40%;
 	height: 100vh;
 	display: flex;
@@ -8,6 +9,7 @@
 		margin: 20px;
 		display: flex;
 		justify-content: space-between;
+		z-index: 2;
 
 		.Navbar--Logo {
 			font-family: 'Dancing Script', 'Inter';
@@ -20,7 +22,6 @@
 			align-items: center;
 
 			.Navbar--Menu__Items {
-				padding: 0 20px;
 				font-weight: bold;
 			}
 		}
@@ -59,7 +60,7 @@
 
 	@media (max-width: 1120px) {
 		& {
-			display: none;
+			width: 100%;
 		}
 	}
 }

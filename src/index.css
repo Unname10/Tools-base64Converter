@@ -14,3 +14,8 @@ a {
 	color: var(--primary-color); /* Change it when use a global color */
 	text-decoration: none;
 }
+
+button,
+label {
+	user-select: none;
+}

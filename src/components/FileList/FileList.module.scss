@@ -115,5 +115,11 @@
 		font-size: 16px;
 		opacity: 0.7;
 		user-select: none;
+
+		@media (max-width: 1120px) {
+			& {
+				padding: 0 20px;
+			}
+		}
 	}
 }
