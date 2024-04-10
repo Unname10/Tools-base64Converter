@@ -5,9 +5,9 @@
 	height: 30vh;
 	display: flex;
 	flex-direction: column;
+	line-height: normal;
 
 	.FileList--Header {
-		width: 100%;
 		padding: 10px 15px;
 		font-size: 18px;
 		border-bottom: 1px dashed #ccc;
