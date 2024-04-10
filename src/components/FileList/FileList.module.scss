@@ -94,7 +94,14 @@
 		}
 
 		.FileList--Items__utils {
-			cursor: pointer;
+			display: flex;
+			.Utils--Items {
+				cursor: pointer;
+
+				&:not(:last-child) {
+					margin-right: 15px;
+				}
+			}
 		}
 	}
 

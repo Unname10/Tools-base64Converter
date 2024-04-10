@@ -2,12 +2,12 @@ import classNames from 'classnames/bind';
 
 import styles from './FileList.module.scss';
 
-import dot from '../../../assets/icons/dot.svg';
 import download from '../../../assets/icons/download_black.svg';
+import copy from '../../../assets/icons/copy_black.svg';
 import text_file from '../../../assets/icons/text_file.svg';
+import check from '../../../assets/icons/check.svg';
 
-import humanFileSize from '../../../utils/humanFileSize';
-import downloadTextAsFile from '../../../utils/donwloadTextAsFile';
+import downloadTextAsFile from '../../../utils/downloadTextAsFile';
 
 const cx = classNames.bind(styles);
 
@@ -30,18 +30,30 @@ function TextItem({ textList }: { textList: textObject[] }) {
 						<p className={cx('FileList--Items__name')}>
 							{file.name}
 						</p>
-						<img className={cx('FileList--Items__dot')} src={dot} />
-						<p className={cx('FileList--Items__size')}>
-							{humanFileSize(file.size)}
-						</p>
 					</div>
-					<img
-						className={cx('FileList--Items__utils')}
-						src={download}
-						onClick={() => {
-							downloadTextAsFile(file.content, file.name);
-						}}
-					/>
+
+					<div className={cx('FileList--Items__utils')}>
+						<img
+							title='Copy'
+							className={cx('Utils--Items')}
+							src={copy}
+							onClick={(e) => {
+								navigator.clipboard.writeText(file.content);
+								(e.target as HTMLImageElement).src = check;
+								setTimeout(() => {
+									(e.target as HTMLImageElement).src = copy;
+								}, 2000);
+							}}
+						/>
+						<img
+							title='Download'
+							className={cx('Utils--Items')}
+							src={download}
+							onClick={() => {
+								downloadTextAsFile(file.content, file.name);
+							}}
+						/>
+					</div>
 				</div>
 			))}
 		</div>

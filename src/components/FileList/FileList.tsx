@@ -38,23 +38,19 @@ function FileList({
 					<ColorDot color='#febf43' />
 					<ColorDot color='#19ce4b' />
 				</div>
-				{`${
-					fileList.length > 0 ? fileList.length : textList.length
-				} File(s)`}
-				<img src={dot} />
-				{`${humanFileSize(
-					fileList.length > 0
-						? fileList.reduce(
+				{`${Math.abs(fileList.length - textList.length)} File(s)`}
+				{textList.length == 0 && (
+					<>
+						<img src={dot} />
+						{`${humanFileSize(
+							fileList.reduce(
 								(total, currentFile) =>
 									currentFile.size + total,
 								0
-						  )
-						: textList.reduce(
-								(total, currentFile) =>
-									currentFile.size + total,
-								0
-						  )
-				)} total`}
+							)
+						)} total`}
+					</>
+				)}
 			</div>
 
 			{fileList.length > 0 && (

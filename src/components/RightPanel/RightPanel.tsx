@@ -7,8 +7,6 @@ import Button from '../Button';
 import plus from '../../../assets/icons/plus.svg';
 import convert from '../../../assets/icons/logo.svg';
 import x from '../../../assets/icons/x.svg';
-import copy from '../../../assets/icons/copy.svg';
-import download from '../../../assets/icons/download.svg';
 import { textObject } from '../FileList/TextItem';
 
 import convertFileToBase64 from '../../../utils/convertFileToBase64';
@@ -99,10 +97,6 @@ function RightPanel() {
 			<div className={cx('Result')}>
 				<p className={cx('Result--Title')}>Result</p>
 				<FileList textList={textFileList} nullText='Empty' />
-				<div className={cx('Result--Utils')}>
-					<Button text='Copy' iconSrc={copy} />
-					<Button text='Download' iconSrc={download} />
-				</div>
 			</div>
 		</div>
 	);

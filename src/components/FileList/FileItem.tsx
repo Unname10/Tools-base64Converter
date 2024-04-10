@@ -40,13 +40,16 @@ function FileItem({
 							{humanFileSize(file.size)}
 						</p>
 					</div>
-					<img
-						className={cx('FileList--Items__utils')}
-						src={x_mark}
-						onClick={() => {
-							handleRemoveItem(idx);
-						}}
-					/>
+					<div className={cx('FileList--Items__utils')}>
+						<img
+							title='Remove'
+							className={cx('Utils--Items')}
+							src={x_mark}
+							onClick={() => {
+								handleRemoveItem(idx);
+							}}
+						/>
+					</div>
 				</div>
 			))}
 		</div>
