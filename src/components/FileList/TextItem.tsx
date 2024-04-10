@@ -14,7 +14,6 @@ const cx = classNames.bind(styles);
 export interface textObject {
 	content: string;
 	name: string;
-	size: number; // TODO: Tí sửa size lại, file sau khi convert có kích thước khác với file ban đầu
 }
 
 function TextItem({ textList }: { textList: textObject[] }) {

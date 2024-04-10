@@ -45,17 +45,14 @@ function RightPanel() {
 						style={{ display: 'none' }}
 						onChange={(e) => {
 							setFileList([...(e.target.files ?? [])]);
-						}} // TODO: Thay đổi sự kiện onChange hoặc reset input khi nhấn nút Clear
-						// Nếu không khi chọn 1 file bất kì, nhấn Clear, rồi chọn lại File đó
-						// Sẽ khiến fileList không được cập nhật
+						}}
 						multiple
+						onClick={(e) => {
+							e.currentTarget.value = '';
+						}}
 					/>
 
-					<Button
-						text='Add More!'
-						iconSrc={plus}
-						htmlFor='uploadFile'
-					/>
+					<Button text='Add' iconSrc={plus} htmlFor='uploadFile' />
 					{fileList.length !== 0 && (
 						<Button
 							text='Clear'
